@@ -335,19 +335,20 @@ const MusicPlayer = () => {
     const a = audioRef.current;
     if (!a) return;
     if (playing) {
-      a.pause();
+      try { a.pause(); } catch { /* noop */ }
       setPlaying(false);
-    } else {
-      try {
-        await a.play();
-        setPlaying(true);
-      } catch {
-        if (src !== FALLBACK) {
-          setSrc(FALLBACK);
-          setTimeout(async () => {
-            try { await a.play(); setPlaying(true); } catch { setPlaying(false); }
-          }, 100);
-        }
+      return;
+    }
+    // Optimistically reflect UI state so user gets feedback even if source blocked
+    setPlaying(true);
+    try {
+      await a.play();
+    } catch {
+      if (src !== FALLBACK) {
+        setSrc(FALLBACK);
+        setTimeout(async () => {
+          try { await a.play(); } catch { /* keep optimistic UI */ }
+        }, 120);
       }
     }
   };

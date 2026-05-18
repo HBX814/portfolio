@@ -50,7 +50,7 @@ const PROJECTS = [
     tagline: "AI-Powered Production Intelligence Platform",
     desc: "An open, developer-first SRE intelligence system combining a FastMCP-based tool surface with multi-agent orchestration via Google ADK. Features semantic runbook search (ChromaDB), operator-gated remediation workflows, real-time Next.js dashboard with SSE/WebSocket streaming, and auto-generated postmortem scoring. Agents: Triage, Remediation, PostMortem Coordinator.",
     tech: ["Google ADK", "FastMCP", "Next.js", "BigQuery", "Pub/Sub", "Firestore", "ChromaDB", "Python"],
-    link: "https://github.com/HBX814",
+    link: "https://github.com/HBX814/operaiq",
     size: "featured",
   },
   {
@@ -69,7 +69,7 @@ const PROJECTS = [
     tagline: "Agents MCP Hackathon",
     desc: "MCP server for monitoring LLM performance drift using adaptive sampling and differential analysis. Implements baseline diagnostic system with tailored questionnaires, automated drift scoring (threshold alerts >50), and SQLite-backed persistence with Gradio dashboard for real-time trend visualization.",
     tech: ["Python", "MCP SDK", "SQLite", "Fast-Agent", "Gradio"],
-    link: "https://github.com/HBX814",
+    link: "https://github.com/HBX814/drift-detector",
     size: "half",
   },
   {
@@ -79,7 +79,7 @@ const PROJECTS = [
     event: "IITISoC '25",
     desc: "Full-stack AI-powered music recommendation platform with hybrid filtering (content-based + collaborative). Integrated Spotify Web API with 7 themed playlist generation modes and advanced semantic search.",
     tech: ["React.js", "Node.js", "Express", "MongoDB", "Scikit-learn", "Spotify API"],
-    link: null,
+    link: "https://github.com/HBX814/InfiMusicRecSys",
     size: "third",
   },
   {
@@ -89,7 +89,7 @@ const PROJECTS = [
     medal: "🥈 Silver",
     desc: "Real-time virtual makeup application using BeautyGAN for realistic makeup transfer and MediaPipe for facial landmark detection. Streamlit interface for applying lipstick, eyeshadow, toner via webcam or photo upload.",
     tech: ["Python", "OpenCV", "MediaPipe", "BeautyGAN", "Streamlit", "Dlib"],
-    link: null,
+    link: "https://github.com/HBX814/Virtual-Makeup-Try-on",
     size: "third",
   },
   {
@@ -98,7 +98,7 @@ const PROJECTS = [
     tagline: "Semantic Search Engine",
     desc: "Intelligent semantic recommendation engine for hiring managers to find relevant SHL assessments from natural language job descriptions. Uses INSTRUCTOR-XL embeddings and FAISS vector search. Evaluated with MAP@3 and Recall@3 metrics.",
     tech: ["Python", "FAISS", "INSTRUCTOR-XL", "hkunlp", "NumPy"],
-    link: null,
+    link: "https://github.com/HBX814/SHL-Assessment-Recommendation-System",
     size: "third",
   },
   {
@@ -107,7 +107,7 @@ const PROJECTS = [
     tagline: "Inter IIT Tech Meet 13.0 · Bharat Forge",
     desc: "Multi-agent path planning system using prioritized A* algorithm with collision avoidance in grid environments. Built for the Bharat Forge challenge at Inter IIT Tech Meet 13.0.",
     tech: ["Python", "NumPy", "Matplotlib", "A* Algorithm"],
-    link: "https://github.com/HBX814/multi-agent-path-planning",
+    link: "https://github.com/HBX814/MultiAgentPathPlanningAstar",
     size: "half",
   },
 ];
@@ -328,7 +328,7 @@ const CustomCursor = () => {
 const MusicPlayer = () => {
   const audioRef = useRef(null);
   const [playing, setPlaying] = useState(false);
-  const [src, setSrc] = useState("https://drive.google.com/uc?export=download&id=1q4C0TJk9RTmTaGKnDUuQ0gKYOAGa-xB2");
+  const [src, setSrc] = useState("/audio/spider-theme.mp3");
   const FALLBACK = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3";
 
   const toggle = async () => {
@@ -520,6 +520,9 @@ const Portfolio = () => {
             </a>
             <a href="#contact" className="btn btn-ghost" data-testid="hero-cta-contact">
               <i className="fa-solid fa-comment-dots" /> Contact Me
+            </a>
+            <a href="/resume.pdf" target="_blank" rel="noreferrer" className="btn btn-ghost" data-testid="hero-cta-resume">
+              <i className="fa-solid fa-file-arrow-down" /> Download Resume
             </a>
           </div>
 
